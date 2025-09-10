@@ -15,43 +15,28 @@ def load_model():
 
 model = load_model()
 
-# Define class labels (modify based on your dataset)
 CLASS_NAMES = [
-    "Melanoma",
-    "Melanocytic Nevus",
-    "Basal Cell Carcinoma",
-    "Actinic Keratosis",
-    "Benign Keratosis",
-    "Dermatofibroma",
-    "Vascular Lesion"
+    "Actinic Keratosis",          # 0
+    "Basal Cell Carcinoma",       # 1
+    "Dermatofibroma",             # 2
+    "Melanoma",                   # 3
+    "Nevus",                      # 4
+    "Pigmented Benign Keratosis", # 5
+    "Seborrheic Keratosis",       # 6
+    "Squamous Cell Carcinoma",    # 7
+    "Vascular Lesion"             # 8
 ]
 
+
 # Preprocess image for model input
-'''def preprocess_image(image):
-    img = image.resize((150, 150))
-    img_array = img_to_array(img) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
-    prediction = model.predict(img_array)
-    class_idx = np.argmax(prediction)
-    predicted_class = CLASS_NAMES[class_idx]
-    return predicted_class, prediction '''
 def preprocess_image(image):
     img = image.resize((150, 150))
     img_array = img_to_array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
     prediction = model.predict(img_array)
     class_idx = np.argmax(prediction)
-    st.write("Model raw output:", prediction)
-    st.write("Predicted index:", class_idx)
-
-    # Safe prediction
-    if class_idx < len(CLASS_NAMES):
-        predicted_class = CLASS_NAMES[class_idx]
-    else:
-        predicted_class = f"Unknown (index {class_idx} not in CLASS_NAMES)"
-
-    return predicted_class, prediction
-
+    predicted_class = CLASS_NAMES[class_idx]
+    return predicted_class, prediction 
 
 # Streamlit UI
 st.title("Skin Cancer Classification using CNN 🏥")
@@ -83,8 +68,8 @@ if uploaded_file is not None:
             st.write("Aggressive skin cancer that can metastasize (spread) if untreated, leading to life-threatening complications.")
             st.header("Precautions/Cure:")
             st.write("Early surgical removal is key. Use sunscreen, avoid excessive sun exposure, and monitor moles (ABCDE rule: Asymmetry, Border irregularity, Color variation, Diameter >6mm, Evolving).")
-
-        elif predicted_class == "Melanocytic Nevus":
+    
+        elif predicted_class == "Nevus":
             st.title("MELANOCYTIC NEVUS (MOLE):")
             st.header("Cause:")
             st.write("Benign proliferation of melanocytes, often due to genetics or sun exposure.")
@@ -111,14 +96,32 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Treated with cryotherapy, topical creams (5-FU, imiquimod), or photodynamic therapy. Sun avoidance is critical.")
         
-        elif predicted_class == "Benign Keratosis":
-            st.title("BENIGN KERATOSIS (SEBORRHEIC KERATOSIS):")
+        elif predicted_class == "Pigmented Benign Keratosis":
+            st.title("PIGMENTED BENIGN KERATOSIS:")
             st.header("Cause:")
-            st.write("Unknown, but linked to aging and genetics (not UV-related).")
+            st.write("Benign lesion related to aging, genetics, and sometimes sun exposure.")
             st.header("Effects:")
-            st.write("Waxy, raised, non-cancerous lesions; no health risk but may be itchy or cosmetically bothersome.")
+            st.write("Dark, rough patches that may resemble melanoma but are harmless.")
             st.header("Precautions/Cure:")
-            st.write("Removal optional (cryotherapy, scraping). No prevention needed.")
+            st.write("Usually no treatment needed; removal possible for cosmetic reasons.")
+        
+        elif predicted_class == "Seborrheic Keratosis":
+            st.title("SEBORRHEIC KERATOSIS:")
+            st.header("Cause:")
+            st.write("Noncancerous skin growths linked to aging and genetics.")
+            st.header("Effects:")
+            st.write("Waxy, raised, or wart-like lesions; no health risk but may be cosmetically concerning.")
+            st.header("Precautions/Cure:")
+            st.write("No treatment required unless bothersome; cryotherapy or minor surgery optional.")
+        
+        elif predicted_class == "Squamous Cell Carcinoma":
+            st.title("SQUAMOUS CELL CARCINOMA (SCC):")
+            st.header("Cause:")
+            st.write("Chronic sun exposure causing DNA damage in keratinocytes.")
+            st.header("Effects:")
+            st.write("Second most common skin cancer; can grow and spread if untreated.")
+            st.header("Precautions/Cure:")
+            st.write("Surgical removal, radiation, or topical treatments. Use sunscreen and protective clothing.")
         
         elif predicted_class == "Dermatofibroma":
             st.title("DERMATOFIBROMA:")
@@ -140,5 +143,6 @@ if uploaded_file is not None:
         
         else:
             st.warning("Unknown condition. Please consult a dermatologist for further evaluation.")
-        
-
+    
+    
+    
