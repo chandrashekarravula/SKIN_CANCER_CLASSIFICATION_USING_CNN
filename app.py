@@ -60,89 +60,90 @@ if uploaded_file is not None:
     st.success(f"**Class:** {predicted_class}")
     
     if st.button("Know more") :
-        if predicted_class == "Melanoma":
+        if predicted_class == "melanoma":
             st.title("MELANOMA :")
             st.header("Cause:")
-            st.write("Caused by UV radiation (sun exposure/tanning beds) damaging melanocytes (pigment-producing cells), often due to genetic mutations.")
+            st.write("Caused by UV radiation (sun exposure/tanning beds) damaging melanocytes (pigment-producing cells) – often due to genetic mutations.")
             st.header("Effects:")
-            st.write("Aggressive skin cancer that can metastasize (spread) if untreated, leading to life-threatening complications.")
+            st.write("Aggressive skin cancer that can metastasize (spread) if untreated – leading to life-threatening complications.")
             st.header("Precautions/Cure:")
             st.write("Early surgical removal is key. Use sunscreen, avoid excessive sun exposure, and monitor moles (ABCDE rule: Asymmetry, Border irregularity, Color variation, Diameter >6mm, Evolving).")
     
-        elif predicted_class == "Nevus":
+        elif predicted_class == "nevus":
             st.title("MELANOCYTIC NEVUS (MOLE):")
             st.header("Cause:")
-            st.write("Benign proliferation of melanocytes, often due to genetics or sun exposure.")
+            st.write("Benign proliferation of melanocytes – often due to genetics or sun exposure.")
             st.header("Effects:")
-            st.write("Usually harmless but may rarely turn into melanoma (if dysplastic or changing).")
+            st.write("Usually harmless – but may rarely turn into melanoma (if dysplastic or changing).")
             st.header("Precautions/Cure:")
             st.write("Monitor for changes (size, color, shape). Suspicious moles should be biopsied/excised.")
         
-        elif predicted_class == "Basal Cell Carcinoma":
+        elif predicted_class == "basal cell carcinoma":
             st.title("BASAL CELL CARCINOMA (BCC):")
             st.header("Cause:")
-            st.write("UV-induced mutations in basal cells (most common skin cancer).")
+            st.write("UV-induced mutations in basal cells – most common skin cancer.")
             st.header("Effects:")
-            st.write("Slow-growing, locally invasive but rarely metastatic. Can cause disfigurement if untreated.")
+            st.write("Slow-growing, locally invasive – but rarely metastatic. Can cause disfigurement if untreated.")
             st.header("Precautions/Cure:")
             st.write("Surgical removal, cryotherapy, or topical treatments. Prevent with sun protection (hats, sunscreen).")
         
-        elif predicted_class == "Actinic Keratosis":
+        elif predicted_class == "actinic keratosis":
             st.title("ACTINIC KERATOSIS (AK):")
             st.header("Cause:")
-            st.write("Chronic sun exposure damaging keratinocytes (precancerous).")
+            st.write("Chronic sun exposure damaging keratinocytes – considered precancerous.")
             st.header("Effects:")
-            st.write("Rough, scaly patches; may progress to squamous cell carcinoma (SCC).")
+            st.write("Rough, scaly patches – may progress to squamous cell carcinoma (SCC).")
             st.header("Precautions/Cure:")
             st.write("Treated with cryotherapy, topical creams (5-FU, imiquimod), or photodynamic therapy. Sun avoidance is critical.")
         
-        elif predicted_class == "Pigmented Benign Keratosis":
+        elif predicted_class == "pigmented benign keratosis":
             st.title("PIGMENTED BENIGN KERATOSIS:")
             st.header("Cause:")
-            st.write("Benign lesion related to aging, genetics, and sometimes sun exposure.")
+            st.write("Linked to aging and genetics – not related to UV exposure.")
             st.header("Effects:")
-            st.write("Dark, rough patches that may resemble melanoma but are harmless.")
+            st.write("Waxy, raised, non-cancerous lesions – no health risk but may be itchy or cosmetically bothersome.")
             st.header("Precautions/Cure:")
-            st.write("Usually no treatment needed; removal possible for cosmetic reasons.")
+            st.write("Removal optional (cryotherapy, scraping). No prevention needed.")
         
-        elif predicted_class == "Seborrheic Keratosis":
+        elif predicted_class == "seborrheic keratosis":
             st.title("SEBORRHEIC KERATOSIS:")
             st.header("Cause:")
-            st.write("Noncancerous skin growths linked to aging and genetics.")
+            st.write("Non-cancerous skin growth – associated with aging and genetics.")
             st.header("Effects:")
-            st.write("Waxy, raised, or wart-like lesions; no health risk but may be cosmetically concerning.")
+            st.write("Brown, black, or light tan growths – usually harmless and not linked to sun exposure.")
             st.header("Precautions/Cure:")
-            st.write("No treatment required unless bothersome; cryotherapy or minor surgery optional.")
+            st.write("No treatment needed unless symptomatic. Can be removed for cosmetic purposes.")
         
-        elif predicted_class == "Squamous Cell Carcinoma":
-            st.title("SQUAMOUS CELL CARCINOMA (SCC):")
-            st.header("Cause:")
-            st.write("Chronic sun exposure causing DNA damage in keratinocytes.")
-            st.header("Effects:")
-            st.write("Second most common skin cancer; can grow and spread if untreated.")
-            st.header("Precautions/Cure:")
-            st.write("Surgical removal, radiation, or topical treatments. Use sunscreen and protective clothing.")
-        
-        elif predicted_class == "Dermatofibroma":
+        elif predicted_class == "dermatofibroma":
             st.title("DERMATOFIBROMA:")
             st.header("Cause:")
-            st.write("Benign fibrous tumor, often from minor trauma (e.g., insect bite).")
+            st.write("Benign fibrous tumor – often from minor trauma (e.g., insect bite).")
             st.header("Effects:")
-            st.write("Firm, pigmented nodule; harmless but may be tender.")
+            st.write("Firm, pigmented nodule – harmless but may be tender.")
             st.header("Precautions/Cure:")
-            st.write("Usually left untreated; excision if symptomatic.")
+            st.write("Usually left untreated – excision if symptomatic.")
         
-        elif predicted_class == "Vascular Lesion":
+        elif predicted_class == "squamous cell carcinoma":
+            st.title("SQUAMOUS CELL CARCINOMA (SCC):")
+            st.header("Cause:")
+            st.write("Chronic UV exposure – mutations in squamous cells of the skin.")
+            st.header("Effects:")
+            st.write("Second most common skin cancer – can grow and spread if untreated.")
+            st.header("Precautions/Cure:")
+            st.write("Early surgical removal or radiation. Prevent with consistent sun protection.")
+        
+        elif predicted_class == "vascular lesion":
             st.title("VASCULAR LESION (e.g., Hemangioma, Angioma):")
             st.header("Cause:")
-            st.write("Abnormal blood vessel growth (congenital or acquired).")
+            st.write("Abnormal blood vessel growth – congenital or acquired.")
             st.header("Effects:")
-            st.write("Red/purple marks; may bleed if traumatized (rarely serious).")
+            st.write("Red/purple marks – may bleed if traumatized (rarely serious).")
             st.header("Precautions/Cure:")
             st.write("Laser therapy for cosmetic concerns. Monitor for changes.")
         
         else:
             st.warning("Unknown condition. Please consult a dermatologist for further evaluation.")
+
     
     
-    
+
