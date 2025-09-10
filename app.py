@@ -27,14 +27,31 @@ CLASS_NAMES = [
 ]
 
 # Preprocess image for model input
-def preprocess_image(image):
+'''def preprocess_image(image):
     img = image.resize((150, 150))
     img_array = img_to_array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
     prediction = model.predict(img_array)
     class_idx = np.argmax(prediction)
     predicted_class = CLASS_NAMES[class_idx]
+    return predicted_class, prediction '''
+def preprocess_image(image):
+    img = image.resize((150, 150))
+    img_array = img_to_array(img) / 255.0
+    img_array = np.expand_dims(img_array, axis=0)
+    prediction = model.predict(img_array)
+    class_idx = np.argmax(prediction)
+    st.write("Model raw output:", prediction)
+    st.write("Predicted index:", class_idx)
+
+    # Safe prediction
+    if class_idx < len(CLASS_NAMES):
+        predicted_class = CLASS_NAMES[class_idx]
+    else:
+        predicted_class = f"Unknown (index {class_idx} not in CLASS_NAMES)"
+
     return predicted_class, prediction
+
 
 # Streamlit UI
 st.title("Skin Cancer Classification using CNN 🏥")
@@ -124,3 +141,4 @@ if uploaded_file is not None:
         else:
             st.warning("Unknown condition. Please consult a dermatologist for further evaluation.")
         
+
