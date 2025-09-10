@@ -60,7 +60,7 @@ if uploaded_file is not None:
     st.success(f"**Class:** {predicted_class}")
     
     if st.button("Know more") :
-        if predicted_class == "melanoma":
+        if predicted_class == "Melanoma":
             st.title("MELANOMA :")
             st.header("Cause:")
             st.write("Caused by UV radiation (sun exposure/tanning beds) damaging melanocytes (pigment-producing cells) – often due to genetic mutations.")
@@ -69,7 +69,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Early surgical removal is key. Use sunscreen, avoid excessive sun exposure, and monitor moles (ABCDE rule: Asymmetry, Border irregularity, Color variation, Diameter >6mm, Evolving).")
     
-        elif predicted_class == "nevus":
+        elif predicted_class == "Nevus":
             st.title("MELANOCYTIC NEVUS (MOLE):")
             st.header("Cause:")
             st.write("Benign proliferation of melanocytes – often due to genetics or sun exposure.")
@@ -78,7 +78,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Monitor for changes (size, color, shape). Suspicious moles should be biopsied/excised.")
         
-        elif predicted_class == "basal cell carcinoma":
+        elif predicted_class == "Basal Cell Carcinoma":
             st.title("BASAL CELL CARCINOMA (BCC):")
             st.header("Cause:")
             st.write("UV-induced mutations in basal cells – most common skin cancer.")
@@ -87,7 +87,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Surgical removal, cryotherapy, or topical treatments. Prevent with sun protection (hats, sunscreen).")
         
-        elif predicted_class == "actinic keratosis":
+        elif predicted_class == "Actinic Keratosis":
             st.title("ACTINIC KERATOSIS (AK):")
             st.header("Cause:")
             st.write("Chronic sun exposure damaging keratinocytes – considered precancerous.")
@@ -96,7 +96,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Treated with cryotherapy, topical creams (5-FU, imiquimod), or photodynamic therapy. Sun avoidance is critical.")
         
-        elif predicted_class == "pigmented benign keratosis":
+        elif predicted_class == "Pigmented Benign Keratosis":
             st.title("PIGMENTED BENIGN KERATOSIS:")
             st.header("Cause:")
             st.write("Linked to aging and genetics – not related to UV exposure.")
@@ -105,7 +105,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Removal optional (cryotherapy, scraping). No prevention needed.")
         
-        elif predicted_class == "seborrheic keratosis":
+        elif predicted_class == "Seborrheic Keratosis":
             st.title("SEBORRHEIC KERATOSIS:")
             st.header("Cause:")
             st.write("Non-cancerous skin growth – associated with aging and genetics.")
@@ -114,7 +114,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("No treatment needed unless symptomatic. Can be removed for cosmetic purposes.")
         
-        elif predicted_class == "dermatofibroma":
+        elif predicted_class == "Dermatofibroma":
             st.title("DERMATOFIBROMA:")
             st.header("Cause:")
             st.write("Benign fibrous tumor – often from minor trauma (e.g., insect bite).")
@@ -123,7 +123,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Usually left untreated – excision if symptomatic.")
         
-        elif predicted_class == "squamous cell carcinoma":
+        elif predicted_class == "Squamous Cell Carcinoma":
             st.title("SQUAMOUS CELL CARCINOMA (SCC):")
             st.header("Cause:")
             st.write("Chronic UV exposure – mutations in squamous cells of the skin.")
@@ -132,7 +132,7 @@ if uploaded_file is not None:
             st.header("Precautions/Cure:")
             st.write("Early surgical removal or radiation. Prevent with consistent sun protection.")
         
-        elif predicted_class == "vascular lesion":
+        elif predicted_class == "Vascular Lesion":
             st.title("VASCULAR LESION (e.g., Hemangioma, Angioma):")
             st.header("Cause:")
             st.write("Abnormal blood vessel growth – congenital or acquired.")
@@ -143,7 +143,3 @@ if uploaded_file is not None:
         
         else:
             st.warning("Unknown condition. Please consult a dermatologist for further evaluation.")
-
-    
-    
-
