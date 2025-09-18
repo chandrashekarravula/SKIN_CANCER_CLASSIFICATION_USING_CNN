@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.utils import load_img, img_to_array
 import os
+import datetime
 
 # Set page title and layout
 st.set_page_config(page_title="Skin Cancer Classification", layout="wide")
@@ -143,3 +144,10 @@ if uploaded_file is not None:
         
         else:
             st.warning("Unknown condition. Please consult a dermatologist for further evaluation.")
+
+# Footer
+st.markdown("---")
+current_year = datetime.datetime.now().year
+footer_text = f"© {current_year} Chandrashekar Ravula. All rights reserved."
+st.markdown(f"<div style='text-align: center; color: gray; font-size: 0.9rem;'>{footer_text}</div>", unsafe_allow_html=True)
+
